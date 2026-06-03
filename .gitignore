@@ -1,0 +1,7 @@
+Dockerfile
+docker.sh
+bin/
+*.txt
+*.swp
+*.swo
+*.swx
