@@ -1,18 +1,19 @@
 #ifndef POSITION_H
 #define POSITION_H
 
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #define MAX_CHARS 9000
+#define MAP_WIDTH (2 * MAX_CHARS)
+#define MAP_HEIGHT (2 * MAX_CHARS)
 
-struct pos{
-	int x;
-	int y;
+struct pos {
+  int x;
+  int y;
 };
 
-int char_to_pos(int c, struct pos *cur_pos);
+void char_to_pos(int c, struct pos *cur_pos);
 int count_spot(struct pos cur_pos, bool *seen);
-int establish_map(bool **seen, struct pos pos, FILE *fp);
 
 #endif
