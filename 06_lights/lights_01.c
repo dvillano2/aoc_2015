@@ -38,9 +38,9 @@ struct location_action parse_line(char *line) {
   struct location_action result;
   const char *delim = " \n";
   char *token = strtok(line, delim);
-  if (*(token + 1) == 'u') {
+  if (strcmp(token, "turn") == 0) {
     token = strtok(NULL, delim);
-    result.action = *(token + 1) == 'n' ? ON : OFF;
+    result.action = strcmp(token, "on") == 0 ? ON : OFF;
   } else {
     result.action = TOGGLE;
   }
@@ -49,8 +49,6 @@ struct location_action parse_line(char *line) {
   strtok(NULL, delim);
   token = strtok(NULL, delim);
   result.end = str_to_pair(token);
-  printf("(%zu, %zu) to (%zu, %zu)\n", result.start.x, result.start.y,
-         result.end.x, result.end.y);
   return result;
 }
 
